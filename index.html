@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Name Lives Forever — yourname.uz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="For $1, your name becomes part of a permanent archive — immutable, public, and eternal.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #000;
+            --text: #fff;
+            --muted: #aaa;
+            --accent: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* HERO */
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1.5s ease forwards;
+        }
+
+        .hero h1 span {
+            display: block;
+        }
+
+        .hero p {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeUp 1.5s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        .cta {
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeUp 1.5s ease forwards;
+            animation-delay: 0.8s;
+        }
+
+        .cta a {
+            text-decoration: none;
+            color: #000;
+            background: #fff;
+            padding: 15px 35px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .cta a:hover {
+            transform: scale(1.05);
+        }
+
+        /* PHILOSOPHY */
+        .philosophy p {
+            font-size: 1.4rem;
+            line-height: 2;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .philosophy p.visible {
+            animation: fadeUp 1.2s ease forwards;
+        }
+
+        .philosophy .forever {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: pulse 3s infinite;
+        }
+
+        /* HOW IT WORKS */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .step {
+            border: 1px solid #222;
+            padding: 30px;
+            border-radius: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .step.visible {
+            animation: fadeUp 1.2s ease forwards;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .step p {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* FORM */
+        form {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input {
+            padding: 15px;
+            background: #000;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 15px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* PAYMENT */
+        .payment-box {
+            border: 1px solid #222;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            line-height: 2;
+            color: var(--muted);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+    #stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #000;
+}
+
+    </style>
+   <link rel="icon" href="/favicon.ico" type="image/x-icon"> 
+</head>
+
+<body>
+<canvas id="stars"></canvas>
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <h1>
+            <span>Your Name</span>
+            <span>Lives Forever</span>
+        </h1>
+        <p>
+            For $1, your name becomes part of a permanent archive — immutable, public, and eternal.
+        </p>
+        <div class="cta">
+            <a href="#form">Leave your name in history</a>
+        </div>
+    </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+    <div class="container">
+        <p>No edits. No deletions.<br>Just proof that you were here.</p>
+        <p>We don’t sell identity.<br>We offer presence.</p>
+        <p class="forever">Forever.</p>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+    <div class="container">
+        <h2>How it works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>1. Enter your name</h3>
+                <p>Your real or chosen name.</p>
+            </div>
+            <div class="step">
+                <h3>2. Contribute $1</h3>
+                <p>A symbolic, one-time contribution.</p>
+            </div>
+            <div class="step">
+                <h3>3. Archived forever</h3>
+                <p>Your name is added permanently.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORM -->
+<section id="form">
+    <div class="container">
+        <h2>Submit your name</h2>
+
+        <form onsubmit="showPayment(event)">
+            <input type="text" placeholder="Your name" required>
+            <input type="text" placeholder="Country (optional)">
+            <button type="submit">Proceed to contribution</button>
+        </form>
+
+        <div id="payment" class="payment-box" style="display:none;">
+            <strong>To complete your submission:</strong><br>
+            • Send <b>$1</b> to the card below<br>
+            • Take a screenshot of the receipt<br>
+            • Send it to us via Telegram or Email<br><br>
+
+            <b>Card:</b> XXXX XXXX XXXX XXXX<br>
+            <b>Contact:</b> @yourtelegram
+        </div>
+    </div>
+</section>
+
+<footer>
+    <a href="archive.html">View the Archive</a><br>
+    © yourname.uz
+</footer>
+
+<script>
+    function showPayment(e) {
+        e.preventDefault();
+        document.getElementById('payment').style.display = 'block';
+        document.getElementById('payment').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.philosophy p, .step').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+<script>
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+
+let w, h;
+function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+const stars = [];
+const STAR_COUNT = 120;
+
+for (let i = 0; i < STAR_COUNT; i++) {
+    stars.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.2,
+        speed: Math.random() * 0.3 + 0.05,
+        alpha: Math.random()
+    });
+}
+
+function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = 'white';
+
+    stars.forEach(s => {
+        ctx.globalAlpha = s.alpha;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        s.y += s.speed;
+        if (s.y > h) {
+            s.y = 0;
+            s.x = Math.random() * w;
+        }
+    });
+
+    requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+</body>
+</html>
